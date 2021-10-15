@@ -1,0 +1,83 @@
+
+
+
+
+<section style="padding:'10px'">
+  <div>
+    <div style="float: left"><mat-form-field class="full-width" appearance="fill">
+      <mat-label>Buscar Filme</mat-label>
+      <input type="text" matInput placeholder="Digite aqui para pesquisar!">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field></div>
+    <div style="float:right;padding-top: 20px;"><button mat-button mat-dialog-close>Adicionar</button></div>
+  </div>
+</section>
+
+<div class="mat-elevation-z8">
+  <table mat-table class="full-width-table" matSort aria-label="Elements">
+    <!-- Id Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
+      <td mat-cell *matCellDef="let row" style="text-align:center">
+        <div style="position: absolute;">
+          {{row.id}}
+        </div>
+        <img matListAvatar src={{row.poster}} alt="Filmes" width="150" height="auto">
+        <h2 *ngIf="mobile"><b>{{row.nome}}</b></h2>
+        <p *ngIf="mobile" style="text-align: justify;">{{row.descricao}}</p>
+      </td>
+    </ng-container>
+
+    <!-- Nome Column -->
+    <ng-container matColumnDef="nome">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header width="200">Nome</th>
+      <td mat-cell *matCellDef="let row">
+        <h2><b>{{row.nome}}</b></h2>
+        <p style="text-align: justify;">{{row.descricao}} {{mobile}}</p>
+      </td>
+    </ng-container>
+
+    <!-- Ano Column -->
+    <ng-container matColumnDef="ano">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Ano</th>
+      <td mat-cell *matCellDef="let row">
+        <p style="text-align: center;">{{row.ano}}</p>
+      </td>
+    </ng-container>
+
+    <!-- Descricao Column -->
+    <!-- <ng-container matColumnDef="descricao">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Descricao</th>
+      <td mat-cell *matCellDef="let row">{{row.descricao}}</td>
+    </ng-container> -->
+
+    <!-- Genero Column -->
+    <ng-container matColumnDef="genero">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Genero</th>
+      <td mat-cell *matCellDef="let row">{{row.genero}}</td>
+    </ng-container>
+
+    <!-- Diretor Column -->
+    <ng-container matColumnDef="diretor">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Diretor</th>
+      <td mat-cell *matCellDef="let row">{{row.diretor}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Ações </th>
+      <td mat-cell *matCellDef="let element">
+        <div class="button-row">
+          <mat-icon>edit</mat-icon>
+          <mat-icon (click)="toggleFloat()" class="sky_blue">delete_outline</mat-icon>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator #paginator [length]="dataSource?.data.length" [pageIndex]="0" [pageSize]="5"
+    [pageSizeOptions]="[5, 25, 50]">
+  </mat-paginator>
+</div>

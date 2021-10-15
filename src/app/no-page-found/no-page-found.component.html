@@ -1,0 +1,8 @@
+<mat-grid-list cols="4" rowHeight="100px">
+    <a mat-list-item routerLink="/home">
+        <mat-grid-tile *ngFor="let tile of tiles | async" [colspan]="tile.cols" [rowspan]="tile.rows"
+            [style.background]="tile.color">
+            Oops! 404
+        </mat-grid-tile>
+    </a>
+</mat-grid-list>

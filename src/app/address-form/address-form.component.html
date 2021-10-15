@@ -1,0 +1,139 @@
+<div class="grid-container">
+  <h1 class="mat-h1">Cadastro de Filme</h1>
+  <mat-grid-list cols="1">
+    <mat-grid-tile>
+      <mat-card class="dashboard-card">
+
+        <form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
+          <mat-card class="shipping-card">
+            <mat-card-content>
+              <div class="row">
+                <div class="col">
+                  <mat-card class="photo-card">
+                    <img mat-card-image
+                      src="https://designercovercustom.xyz/wp-content/uploads/2021/08/Velozes-Furiosos-9-930x620.jpg"
+                      alt="Photo of a Shiba Inu">
+                    <mat-card-actions>
+                      <button mat-button>Alterar</button>
+                      <button mat-button>Imprimir</button>
+                    </mat-card-actions>
+                  </mat-card>
+                </div>
+                <div class="col">
+                  <div class="row">
+                    <div class="col">
+                      <mat-form-field class="full-width">
+                        <span matPrefix>R$ &nbsp;</span>
+                        <input matInput placeholder="Valor" formControlName="titulo">
+                      </mat-form-field>
+                    </div>
+                    <div class="col">
+
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <div class="row">
+                        <mat-form-field class="full-width">
+                          <input matInput placeholder="Titulo do Filme" formControlName="titulo">
+                        </mat-form-field>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          <mat-form-field class="full-width">
+                            <input matInput placeholder="Principais Atores" formControlName="atores">
+                            <mat-error *ngIf="addressForm.controls['atores'].hasError('required')">
+                              Atores são <strong>Obrigatórios</strong>
+                            </mat-error>
+                          </mat-form-field>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="row">
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col">
+                      <mat-form-field class="full-width">
+                        <input type="date" matInput placeholder="Cadastro" formControlName="atores">
+                        <mat-error *ngIf="addressForm.controls['atores'].hasError('required')">
+                          Atores são <strong>Obrigatórios</strong>
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <mat-form-field class="full-width">
+                        <mat-select placeholder="Gênero" formControlName="genero">
+                          <mat-option *ngFor="let genero of generos" [value]="genero.abbreviation">
+                            {{ genero.name }}
+                          </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="addressForm.controls['state'].hasError('required')">
+                          Gênero é <strong>Obrigatório</strong>
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="col">
+                      <mat-form-field class="full-width">
+                        <mat-select placeholder="Tipo Produto" formControlName="tipo_produto">
+                          <mat-option *ngFor="let tipo_produto of tipoProdutos" [value]="tipo_produto.abbreviation">
+                            {{ tipo_produto.name }}
+                          </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="addressForm.controls['tipo_produto'].hasError('required')">
+                          Tipo de Produto é <strong>Obrigatório.</strong>
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="col">
+                      <mat-form-field class="full-width">
+                        <mat-select placeholder="Tipo de Filme" formControlName="tipo_filme">
+                          <mat-option *ngFor="let tipo_filme of tipoFilmes" [value]="tipo_filme.abbreviation">
+                            {{ tipo_filme.name }}
+                          </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="addressForm.controls['tipo_filme'].hasError('required')">
+                          Tipo de Filme é <strong>Obrigatório.</strong>
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <mat-form-field class="full-width">
+                        <input matInput placeholder="Principais Diretores" formControlName="diretores">
+                        <mat-error *ngIf="addressForm.controls['diretores'].hasError('required')">
+                          Diretores são <strong>Obrigatórios</strong>
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="col">
+                      <mat-form-field class="full-width">
+                        <mat-select placeholder="Principais Fornecedores" formControlName="fornecedor">
+                          <mat-option *ngFor="let fornecedor of fornecedores" [value]="fornecedor.abbreviation">
+                            {{ fornecedor.name }}
+                          </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="addressForm.controls['state'].hasError('required')">
+                          Fornecedor é <strong>Obrigatório</strong>
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-raised-button color="primary" type="submit">Salvar</button>
+            </mat-card-actions>
+          </mat-card>
+        </form>
+        Ps: A ideia dessa janela é complementar a listagem como um modal, sendo assim o editar e excluir fica na lista.
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

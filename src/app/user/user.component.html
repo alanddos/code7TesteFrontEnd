@@ -1,0 +1,30 @@
+<div style="width: 100%; text-align: center;">
+    <div class="row">
+        <br />
+    </div>
+    <div class="row">
+        <mat-card class="cardTop">
+            <mat-card-header class="headerTop">
+                <mat-card-title>
+                    <button [matMenuTriggerFor]="menu" aria-label="Toggle menu" class="botaoPerfil">
+                        <!-- <img [src]="user.photoURL || 'https://api.adorable.io/avatars/109/fire.png'" class="user"
+                            style="float: right;"> -->
+                    </button>
+                    <mat-menu #menu="matMenu" xPosition="before">
+                        <button mat-flat-button color="primary" (click)="logout()" style="width: -webkit-fill-available;">Meu Perfil</button>
+                        <button mat-flat-button color="primary" (click)="logout()"  style="width: -webkit-fill-available;">Desconectar</button>
+                    </mat-menu>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="dashboard-card-content">
+                
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+
+<ng-template #showLogin>
+    <div style="width: 100%; text-align: center;">
+        <button mat-flat-button color="primary" (click)="login()">Login</button>
+    </div>
+</ng-template>

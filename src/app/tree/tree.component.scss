@@ -1,0 +1,39 @@
+.container {
+  margin: "20px"
+}
+
+.left {
+  width: calc(50% - 30px);
+  height: calc(100vh - 100px);
+  float: left;
+  background-color: blue;
+  margin: 20px;
+}
+
+.left-top, .left-bottom {
+  width: calc(50% - 30px);
+    height: calc(100vh - 50vh - 60px);
+    float: left;
+    background-color: aquamarine;
+    margin: 20px 0px 0px 0px;
+}
+
+.left-top {  
+  background-image: linear-gradient(to bottom right, red, yellow);
+}
+
+.left-bottom {
+  background-image: url("https://image.freepik.com/vetores-gratis/tecnologia-de-internet-em-nuvem_53876-94170.jpg");
+  background-position: left top;
+  background-repeat: repeat;
+}
+
+.text-solo {
+  text-align:center;
+  line-height: 87vh  
+}
+
+.text {
+  text-align:center;
+  line-height: 45vh  
+}
